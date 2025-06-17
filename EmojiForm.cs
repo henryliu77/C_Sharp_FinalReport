@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
-namespace TCPIP_Chat_Room_Client
+
+namespace TCPIP_Arduino_ChatRoom
 {
     public partial class EmojiForm : Form
     {
@@ -24,7 +20,7 @@ namespace TCPIP_Chat_Room_Client
             LoadEmojis();
         }
 
-        public void LoadEmojis()
+        private void LoadEmojis()
         {
             string emojiPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Emojis");
             if (!Directory.Exists(emojiPath))
@@ -56,9 +52,25 @@ namespace TCPIP_Chat_Room_Client
             }
         }
 
-        private void btn_Exit_Click(object sender, EventArgs e)
+        private void EmojiForm_MouseDown(object sender, MouseEventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            if (e.Button == MouseButtons.Left)
+            {
+                this.curr_x = e.X;
+                this.curr_y = e.Y;
+                this.isWndMove = true;
+            }
+        }
+
+        private void EmojiForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.isWndMove)
+                this.Location = new Point(this.Left + e.X - this.curr_x, this.Top + e.Y - this.curr_y);
+        }
+
+        private void EmojiForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.isWndMove = false;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -82,25 +94,9 @@ namespace TCPIP_Chat_Room_Client
             this.isWndMove = false;
         }
 
-        private void EmojiForm_MouseDown(object sender, MouseEventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.curr_x = e.X;
-                this.curr_y = e.Y;
-                this.isWndMove = true;
-            }
-        }
-
-        private void EmojiForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.isWndMove)
-                this.Location = new Point(this.Left + e.X - this.curr_x, this.Top + e.Y - this.curr_y);
-        }
-
-        private void EmojiForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            this.isWndMove = false;
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

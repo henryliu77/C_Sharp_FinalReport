@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TCPIP_Chat_Room_Client
+namespace TCPIP_Chat_Room_Server
 {
     public partial class StickerForm : Form
     {
         private int curr_x;
         private int curr_y;
         private bool isWndMove = false;
-
         public string SelectedSticker { get; private set; }
 
         public StickerForm()
@@ -23,11 +22,9 @@ namespace TCPIP_Chat_Room_Client
             InitializeComponent();
             LoadStickers();
         }
-
-        
         private void LoadStickers()
         {
-            string stickerPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Stickers");
+            string stickerPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "stickers");
             if (!Directory.Exists(stickerPath))
             {
                 MessageBox.Show("Stickers 資料夾不存在！");
@@ -39,7 +36,7 @@ namespace TCPIP_Chat_Room_Client
             {
                 PictureBox pb = new PictureBox();
                 pb.Image = Image.FromFile(file);
-                pb.Size = new Size(100, 100);
+                pb.Size = new Size(80, 80);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.Margin = new Padding(5);
                 pb.Cursor = Cursors.Hand;
@@ -53,6 +50,12 @@ namespace TCPIP_Chat_Room_Client
 
                 flowLayoutPanel.Controls.Add(pb);
             }
+        }
+
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void StickerForm_MouseDown(object sender, MouseEventArgs e)
@@ -76,11 +79,6 @@ namespace TCPIP_Chat_Room_Client
             this.isWndMove = false;
         }
 
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -90,6 +88,7 @@ namespace TCPIP_Chat_Room_Client
                 this.isWndMove = true;
             }
         }
+
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -103,4 +102,3 @@ namespace TCPIP_Chat_Room_Client
         }
     }
 }
-

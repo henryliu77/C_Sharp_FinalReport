@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_Exit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAMBJREFUSEvtldsKwjAQRM+Tt///BNFnUfB7vPyGFwayEIaskFTBhw4MLdvJnpCk
+        DAAACwwBP0AiyAAAAMBJREFUSEvtldsKwjAQRM+Tt///BNFnUfB7vPyGFwayEIaskFTBhw4MLdvJnpCk
         Lczq1B54Aq9Ba+zOm9Z6NAb1Wj1SeXjUqTw46lQelG/FXr8C90a9C3AB1sAKOFV13au2SSCpPCjAsjzT
         VY3lqAkyCSAfDeJAz3cD5HOZbWgBHBq5/wTUa/71JdImx8yjYb0netY6wqk8GACfbUB0hCefIr1QstcF
         b9W7ASNO5cFRp/r551o/iykQjd1601kf9Qa4MhPV1NC2aAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

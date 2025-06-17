@@ -1,6 +1,6 @@
 ﻿public static class EmojiHelper
 {
-    private static Dictionary<string, string> emojiDict;
+    //private static Dictionary<string, string> emojiDict;
 
     /*static EmojiHelper()
     {
